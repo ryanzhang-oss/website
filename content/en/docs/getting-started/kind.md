@@ -52,7 +52,7 @@ hub cluster, and the other the Fleet member cluster. Run the commands below to c
 export KIND_IMAGE=YOUR-KIND-IMAGE
 # Replace YOUR-KUBECONFIG-PATH with the path to a Kubernetes
 # configuration file of your own, typically $HOME/.kube/config.
-export KUBECONFIG_PATH=YOUR-KUBECONFIG-PATH
+export KUBECONFIG=YOUR-KUBECONFIG-PATH
 
 # The names of the kind clusters; you may use values of your own if you'd like to.
 export HUB_CLUSTER=hub
@@ -60,10 +60,10 @@ export MEMBER_CLUSTER=cluster-1
 
 kind create cluster --name $HUB_CLUSTER \
     --image=$KIND_IMAGE \
-    --kubeconfig=$KUBECONFIG_PATH
+    --kubeconfig=$KUBECONFIG
 kind create cluster --name $MEMBER_CLUSTER \
     --image=$KIND_IMAGE \
-    --kubeconfig=$KUBECONFIG_PATH
+    --kubeconfig=$KUBECONFIG
 
 # Export the configurations for the kind clusters.
 kind export kubeconfig -n $HUB_CLUSTER
